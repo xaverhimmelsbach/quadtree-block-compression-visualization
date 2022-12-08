@@ -1,5 +1,5 @@
 {
-  description = "Build a compressed quadtree image from block-based sub-images";
+  description = "Visualize measurements made with quadtree-block-compression";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
