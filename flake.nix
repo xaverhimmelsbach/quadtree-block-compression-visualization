@@ -26,6 +26,7 @@
                   # Visualization libs
                   pandas
                   seaborn
+                  pyyaml
                 ];
                 local-python = python3.withPackages local-python-packages;
               in
