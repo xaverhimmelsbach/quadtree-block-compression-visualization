@@ -1,3 +1,4 @@
 .direnv/
 .ipynb_checkpoints/
 measurements/codec
+**/__pycache__/
