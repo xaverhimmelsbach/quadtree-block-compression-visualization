@@ -119,5 +119,5 @@ def run_visualization_and_timings(input_path, name, similarity_cutoff, downsampl
     end = time.time()
 
     with open(f'{path}/meta.txt', 'w') as file:
-        file.write(f'{name}\n{end - start}')
+        file.write(f'{name}\n{end - start}\n{os.path.basename(input_path)}')
     
