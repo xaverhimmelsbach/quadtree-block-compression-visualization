@@ -102,7 +102,7 @@ def run_visualization_and_timings(input_path, name, similarity_cutoff, downsampl
     result = run(input_path, similarity_cutoff, downsampling_interpolator, upsampling_interpolator, archive_format, encoding_parallelism,
         skip_oob_blocks, deduplicate_blocks_enable, deduplicate_blocks_minimal_similarity, decoding_parallelism, visualization)
 
-    analytics = re.search('data\/analytics\/(\d+)', result.decode("utf-8"))
+    analytics = re.search('data\/analytics\/([\d_]+)', result.decode("utf-8"))
 
     if analytics is None:
         print('Malformed result')
