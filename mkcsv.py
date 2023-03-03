@@ -2,15 +2,15 @@ import os
 import csv
 
 # Set the directory that contains the subdirectories
-root_dir = "/home/xaver/Nextcloud/Semester 11/Measurements/_plain_run"
+root_dir = "/home/xaver/Nextcloud/Semester 11/Measurements/_compression"
 
 # Open the output CSV file
-with open("plain_run.csv", "w", newline="") as csvfile:
+with open("compression.csv", "w", newline="") as csvfile:
     # Create a CSV writer
     csvwriter = csv.writer(csvfile)
 
     # Write the header row
-    csvwriter.writerow(["file_name", "file_size_original", "file_size_transcoded", "compression_ratio", "transcoding_time"])
+    csvwriter.writerow(["file_name", "file_size_original", "file_size_transcoded", "compression_ratio", "transcoding_time", "archive_format"])
 
     # Iterate over the subdirectories in the root directory
     for subdir in os.listdir(root_dir):
@@ -30,7 +30,9 @@ with open("plain_run.csv", "w", newline="") as csvfile:
         with open(meta_path, "r") as metafile:
             meta_lines = metafile.readlines()
             # Convert seconds to milliseconds
+            archive_format = meta_lines[0].strip().split('_')[1]
             transcoding_time = round(float(meta_lines[1].strip()) * 1000)
+            filename = meta_lines[2].strip().rstrip('.png')
 
         # Write a row to the CSV file
-        csvwriter.writerow([subdir, file_size_original, file_size_transcoded, compression_ratio, transcoding_time])
+        csvwriter.writerow([filename, file_size_original, file_size_transcoded, compression_ratio, transcoding_time, archive_format])
