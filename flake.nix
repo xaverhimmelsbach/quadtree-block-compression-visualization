@@ -27,6 +27,7 @@
                   pandas
                   seaborn
                   pyyaml
+                  opencv4
                 ];
                 local-python = python3.withPackages local-python-packages;
               in
